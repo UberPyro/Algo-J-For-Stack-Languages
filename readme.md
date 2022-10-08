@@ -14,7 +14,7 @@ This turns out to be very useful for typechecking languages with generics. Expre
 
 ## Stack Type Inference
 
-Union-find / unifiable references are very good at modelling polymorphic variables, as they can be unified together until they are unified with concrete types and eventually solved. However, stack languages have two kinds of polymorphic variables - variable types, and *stack types* (also called sequence types). Stack types reprsent stack polymorphism - the property of a function that it is invariant over some stack. Take for instance the following examples: 
+Union-find / unifiable references are very good at modelling polymorphic variables, as they can be unified together until they are unified with concrete types and eventually solved. However, stack languages have two kinds of polymorphic variables - type variables, and *type stacks* (also called sequence types). Type stacks reprsent stack polymorphism - the property of a function that it is invariant over some stack. Take for instance the following examples: 
 
 ```
 (+) : 0 int int -- 0 int
