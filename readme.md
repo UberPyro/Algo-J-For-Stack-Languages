@@ -1,3 +1,5 @@
+(disclaimer: I haven't tested this implementation thoroughly yet, so it might not be perfect)
+
 # Algorithm J for Stack Languages
 
 This repo contains an extremely minimal implementation of a typechecker for a concatenative language written in OCaml. It is intended for learning purposes, so that others who are interested in statically-typed stack languages have something to follow. While this implementation is derivative of a description from an [academic paper](https://www2.ccs.neu.edu/racket/pubs/dissertation-kleffner.pdf) (the nature of which some may find daunting), the actual concepts at play are actually *very* simple and should be accessible to anyone. Indeed, as this minimal implementation forgoes scoped variables and nested let bindings, and with concatenation as the only relevant inference rule, it is, in many respects, vastly simpler to implement than traditional HM type systems. 
