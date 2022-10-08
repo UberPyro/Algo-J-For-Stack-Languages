@@ -1,0 +1,4 @@
+(executable
+ (public_name jcat)
+ (name main)
+ (libraries jcat))
