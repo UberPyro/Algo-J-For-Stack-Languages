@@ -44,7 +44,7 @@ module Instructions = struct
   let call = ascribe Call @@
     let s0, s1 = fresh_stack (), fresh_stack () in
     push_var (uref @@ Type.Quote (s0, s1)) s0, s1
-  (* (2 -- 3) => 0 -- 1 [2 -- 3] *)
+  (* (1 -- 2) => 0 -- 0 [1 -- 2] *)
   let quote fn = ascribe (Quote fn) (fresh_lit (uref @@ Type.Quote fn.ty))
   (* (fn) => fn *)
   let expr e = ascribe e (fresh_stack (), fresh_stack ())
