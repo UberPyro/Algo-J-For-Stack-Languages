@@ -27,9 +27,9 @@ dip : 0 A [0 -- 1] -- 1 A
 
 Here, we use lowercase to represent concrete types, uppercase to represent polymorphic types, numbers to represent stacks, `--` to represent stack effects, and `[]` to represent quotation. The key is that stack variables represent the rest of the stack. For example: 
 
-in `2 1 (+)`, the rest of the stack (`0`) over the `(+)` operation is the empty stack. 
-in `2 1 3 (+)`, the type stack `0` is `int` during `(+)`. 
-in `4 1 6 5 swap`, the type stack `0` is `4 1` during the swap
+- in `2 1 (+)`, the rest of the stack (`0`) over the `(+)` operation is the empty stack. 
+- in `2 1 3 (+)`, the type stack `0` is `int` during `(+)`. 
+- in `4 1 6 5 swap`, the type stack `0` is `4 1` during the swap
 
 It turns out that stack types can be modelled very well by linked lists made out of unifiable references, so both the `data` ("this element") field and the `next` field are unifiable. Unifying two stacks means that we recursively pop the heads off of the two lists and unify them (the `data` fields) until we get to a nil (one list is empty). We then unify the bottoms (the `next` fields), making the stacks the same, and choosing the longer stack as the new underlying value. This simple process extends HM type inference for stacks. 
 
@@ -37,6 +37,6 @@ It turns out that stack types can be modelled very well by linked lists made out
 
 I've tried to keep this implementation relatively basic as I know that OCaml might be unfamiliar to some interested people. With that said, I do use some of the operations from OCaml and Batteries (for convenience) that might not be widely known. 
 
-`unique` is a function from batteries which generates a new integer whenever it is called. This is important for generating fresh type variables. 
-`(@@)` is a slow infix operator for application, like `$` in Haskell or `<|` in F#. 
-`(%)` is composition from Batteries, like `.` in Haskell or `<<` in `F#`. 
+- `unique` is a function from batteries which generates a new integer whenever it is called. This is important for generating fresh type variables. 
+- `(@@)` is a slow infix operator for application, like `$` in Haskell or `<|` in F#. 
+- `(%)` is composition from Batteries, like `.` in Haskell or `<<` in `F#`. 
