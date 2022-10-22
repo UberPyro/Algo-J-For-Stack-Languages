@@ -50,7 +50,7 @@ module Instructions = struct
   let expr e = ascribe e (fresh_stack (), fresh_stack ())
 end
 
-(* some expression `e` has some input type stack `io` and output `o0`. 
+(* some expression `e` has some input type stack `i0` and output `o0`. 
    it is also composed of concatenated subexpressions with their own input and output types. 
    we must: 
    - unify `i0` with the input of the leftmost subexpression
