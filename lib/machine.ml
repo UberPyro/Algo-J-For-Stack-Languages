@@ -19,7 +19,7 @@ and _word =
 let fresh_stack () = 
   uref @@ Bottom (unique ())
 
-(* V => 0 => 0 V *)
+(* V => 0 -- 0 V *)
 let push_var v s = 
   uref @@ Stack (s, v)
 
