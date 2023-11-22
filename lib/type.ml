@@ -49,10 +49,10 @@ and unify_var r =
       unify_seq i0 i1; (* unified functions have same inputs *)
       unify_seq o0 o1; (* and outputs *)
       q
+    | v, u when v = u -> v  (* unifying something with itself is itself *)
     | v, Var k | Var k, v -> 
       occurs_var k v;  (* ensure variable not in type *)
       v                (* unified var types are the same *)
-    | v, u when v = u -> v  (* unifying something with itself is itself *)
     | v, u -> 
       raise @@ Type_error begin
         sprintf
