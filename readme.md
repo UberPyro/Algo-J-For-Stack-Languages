@@ -29,7 +29,7 @@ Here, we use lowercase to represent concrete types, uppercase to represent polym
 
 - in `2 1 (+)`, the rest of the stack (`0`) over the `(+)` operation is the empty stack. 
 - in `2 1 3 (+)`, the type stack `0` is `int` during `(+)`. 
-- in `4 1 6 5 swap`, the type stack `0` is `4 1` during the swap
+- in `4 1 6 5 swap`, the type stack `0` is `int int` during the swap
 
 It turns out that stack types can be modelled very well by linked lists made out of unifiable references, so both the `data` ("this element") field and the `next` field are unifiable. Unifying two stacks means that we recursively pop the heads off of the two lists and unify them (the `data` fields) until we get to a nil (one list is empty). We then unify the bottoms (the `next` fields), making the stacks the same, and choosing the longer stack as the new underlying value. This simple process extends HM type inference for stacks. 
 
